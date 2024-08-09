@@ -14,7 +14,6 @@ app.add_middleware(
     allow_headers = ["*"]
 )
 
-
 class NumberRequest(BaseModel):
     number: int
 
@@ -45,9 +44,6 @@ async def generate_triangle_endpoint(data: NumberRequest):
         raise HTTPException(status_code=400, detail="Number must be positive")
     result = generateTriangle(data.number)
     return {"result": result}
-
-# @app.get("/generate-triangle")
-# AFTER THIS
 
 @app.post("/generate-odd-number")
 async def generate_odd_number_endpoint(data: NumberRequest):
